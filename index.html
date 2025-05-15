@@ -1,0 +1,110 @@
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Твір "Павутинка" Айзека Азімова</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        main {
+            margin: 20px;
+        }
+
+        h1 {
+            font-size: 2em;
+        }
+
+        .content {
+            margin-top: 30px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .pagination {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .pagination button {
+            padding: 10px 20px;
+            margin: 0 5px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .pagination button:hover {
+            background-color: #45a049;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Твір "Павутинка" Айзека Азімова</h1>
+</header>
+
+<main>
+    <div id="content" class="content active">
+        <div id="page-1" class="page active">
+            <p>Це перша частина твору "Павутинка" Айзека Азімова. Тут ми знайомимося з головними персонажами і їхнім світом.</p>
+        </div>
+        <div id="page-2" class="page">
+            <p>Це друга частина. Ось де починаються основні події, пов'язані з науковими експериментами та їхнім впливом на людей.</p>
+        </div>
+        <div id="page-3" class="page">
+            <p>Третя частина розкриває розв'язку конфлікту, який був побудований в попередніх сторінках. Тут персонажі повинні приймати складні рішення.</p>
+        </div>
+        <div class="pagination">
+            <button onclick="changePage(-1)">Попередня</button>
+            <button onclick="changePage(1)">Наступна</button>
+        </div>
+    </div>
+</main>
+
+<script>
+    let currentPage = 1;
+    const totalPages = 3;
+
+    function changePage(direction) {
+        currentPage += direction;
+        if (currentPage < 1) currentPage = 1;
+        if (currentPage > totalPages) currentPage = totalPages;
+        showPage(currentPage);
+    }
+
+    function showPage(page) {
+        const pages = document.querySelectorAll('.page');
+        pages.forEach((p, index) => {
+            p.classList.remove('active');
+            if (index + 1 === page) {
+                p.classList.add('active');
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
